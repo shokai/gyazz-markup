@@ -1,7 +1,7 @@
 
 module GyazzMarkup
 
-  def self.markup(base, txt)
+  def self.markup(txt, base="test")
     lines = txt.split(/[\r\n]/).delete_if{|line|
       line.to_s.size < 1
     }

@@ -1,32 +1,26 @@
 = gyazz-markup
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/shokai/gyazz-markup
 
 == DESCRIPTION:
 
-FIX (describe your package)
-
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+markup Gyazz.com syntax.
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
-
-== REQUIREMENTS:
-
-* FIX (list of requirements)
+  require 'rubygems'
+  require 'gyazz-markup'
+  puts GyazzMarkup.markup(open("input.txt").read, "shokai")
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem install gyazz-markup
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2012 FIXME full name
+Copyright (c) 2012 Sho Hashimoto
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
