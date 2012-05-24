@@ -3,6 +3,7 @@ Manifest.txt
 README.rdoc
 Rakefile
 lib/gyazz-markup.rb
+lib/gyazz-markup/markup.rb
 script/console
 script/destroy
 script/generate
