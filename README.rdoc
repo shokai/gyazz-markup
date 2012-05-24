@@ -10,6 +10,10 @@ markup Gyazz.com syntax.
 
   require 'rubygems'
   require 'gyazz-markup'
+  puts GyazzMarkup.markup(open("input.txt").read)
+
+or
+
   puts GyazzMarkup.markup(open("input.txt").read, "shokai")
 
 == INSTALL:

@@ -1,23 +1,15 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 require 'rubygems'
-$:.unshift File.dirname(__FILE__)+'/../lib/'
+## $:.unshift File.dirname(__FILE__)+'/../lib/'
 
 require 'gyazz-markup'
 
-base, input, output = ARGV[0..2]
+input, base = ARGV[0..1]
 unless input
-  STDERR.puts "gyazz-markup 増井 input.txt"
-  STDERR.puts "gyazz-markup 増井 input.txt output.html"
+  STDERR.puts "gyazz-markup input.txt"
+  STDERR.puts "gyazz-markup input.txt 増井"
   exit 1
 end
 
-html = GyazzMarkup.markup(base, open(input).read)
-
-if output
-  open(output, 'w+') do |f|
-    f.write html
-  end
-else
-  puts html
-end
+puts GyazzMarkup.markup(open(input).read, base)
