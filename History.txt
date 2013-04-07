@@ -1,3 +1,8 @@
+=== 0.1.0 2013-04-07
+
+* add samples
+* create GyazzMarkup::Markup instance
+
 === 0.0.2 2013-04-07
 
 * use bundler gem template
