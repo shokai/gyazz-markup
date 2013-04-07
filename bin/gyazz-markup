@@ -7,8 +7,10 @@ require 'gyazz-markup'
 
 input, base = ARGV[0..1]
 unless input
-  STDERR.puts "gyazz-markup input.txt"
-  STDERR.puts "gyazz-markup input.txt 増井"
+  STDERR.puts "== gyazz-markup v#{GyazzMarkup::VERSION}"
+  STDERR.puts
+  STDERR.puts "  % gyazz-markup input.txt"
+  STDERR.puts "  % gyazz-markup input.txt WIKINAME"
   exit 1
 end
 
