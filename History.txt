@@ -1,3 +1,7 @@
+=== 0.1.1 2013-04-08
+
+* link WikiName::PageName
+
 === 0.1.0 2013-04-07
 
 * add samples
