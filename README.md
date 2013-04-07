@@ -17,14 +17,18 @@ Usage
 ```ruby
 require 'rubygems'
 require 'gyazz-markup'
-puts GyazzMarkup.markup(open("input.txt").read)
+str = File.open("input.txt").read
+
+gm = GyazzMarkup::Markup.new
+puts gm.markup str
 ```
 
-or
-
+config
 ```ruby
-puts GyazzMarkup.markup(open("input.txt").read, "shokai")
+gm = GyazzMarkup::Markup.new(:host => 'http://gyazz.com', :wiki => 'shokai')
+puts gm.markup str
 ```
+
 
 Contributing
 ------------

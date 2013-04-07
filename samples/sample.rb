@@ -10,4 +10,6 @@ else
 end
 
 str = File.open(fname).read
-puts GyazzMarkup.markup str
+gm = GyazzMarkup::Markup.new :host => 'http://gyazz.com', :wiki => 'test'
+
+puts gm.markup str

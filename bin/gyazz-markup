@@ -5,7 +5,7 @@ require 'rubygems'
 
 require 'gyazz-markup'
 
-input, base = ARGV[0..1]
+input, wiki = ARGV[0..1]
 unless input
   STDERR.puts "== gyazz-markup v#{GyazzMarkup::VERSION}"
   STDERR.puts
@@ -14,4 +14,4 @@ unless input
   exit 1
 end
 
-puts GyazzMarkup.markup(open(input).read, base)
+puts GyazzMarkup::Markup.new(:wiki => wiki).markup(open(input).read)
