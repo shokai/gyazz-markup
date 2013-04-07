@@ -31,7 +31,7 @@ module GyazzMarkup
     str !~ pat ? str : str.gsub(pat, "<a href=\"#{$1}\">#{$1}</a>")
   end
 
-  def self.markup_inner_link(str, base='gyazz')
+  def self.markup_inner_link(str, base='test')
     pat = /\[{2}(.+)\]{2}/
     str !~ pat ? str : str.gsub(pat, "<a href=\"http://gyazz.com/#{base}/#{$1}\">#{$1}</a>")
   end
