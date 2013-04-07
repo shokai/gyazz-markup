@@ -1,0 +1,12 @@
+[[[強く表示]]]
+[[http://gyazo.com/f7b9ad3035e91e7c9d91aaa082ddb7f2.png]] こうすると、画像が入れられます
+新しいページへのリンクも作れる → [[ごはん]]
+URLをリンク [[http://shokai.org]]
+タイトル付きURLリンク → [[htts:/example.com 私のホームページ]]
+画像つきURLリンク [[https://shokai.org http://gyazo.com/b2c551db20c7ef6ad598b89e66be6517.png]]
+インデント
+ aaa
+  aaa1
+   aaa2
+ bbb
+  bbb2
