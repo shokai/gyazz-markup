@@ -1,3 +1,9 @@
+=== 0.0.2 2013-04-07
+
+* use bundler gem template
+* add tests
+* fix URL matcher
+
 === 0.0.1 2012-05-24
 
 * first release.
