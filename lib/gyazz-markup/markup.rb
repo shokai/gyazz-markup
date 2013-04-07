@@ -22,12 +22,12 @@ module GyazzMarkup
   end
 
   def self.markup_image(str)
-    pat = /\[{2,3}(https?:\/\/.+)\.(png|jpe?g|gif|bmp)\]{2,3}/
+    pat = /\[{2,3}(https?:\/\/[^\s]+)\.(png|jpe?g|gif|bmp)\]{2,3}/
     str !~ pat ? str : str.gsub(pat, "<a href=\"#{$1}.#{$2}\"><img src=\"#{$1}.#{$2}\"></a>")
   end
 
   def self.markup_url(str)
-    pat = /\[{2}(https?:\/\/.+)\]{2}/
+    pat = /\[{2}(https?:\/\/[^\s]+)\]{2}/
     str !~ pat ? str : str.gsub(pat, "<a href=\"#{$1}\">#{$1}</a>")
   end
 
@@ -42,12 +42,12 @@ module GyazzMarkup
   end
 
   def self.markup_url_with_title(str)
-    pat = /\[{2}(https?:\/\/.+)\s(.+)\]{2}/
+    pat = /\[{2}(https?:\/\/[^\s]+)\s(.+)\]{2}/
     str !~ pat ? str : str.gsub(pat, "<a href=\"#{$1}\">#{$2}</a>")
   end
 
   def self.markup_url_with_image(str)
-    pat = /\[{2}(https?:\/\/.+)\s(https?:\/\/.+)\.(png|jpe?g|gif|bmp)\]{2}/
+    pat = /\[{2}(https?:\/\/[^\s]+)\s(https?:\/\/[^\s]+)\.(png|jpe?g|gif|bmp)\]{2}/
     str !~ pat ? str : str.gsub(pat, "<a href=\"#{$1}\"><img src=\"#{$2}.#{$3}\"></a>")
   end
 end
