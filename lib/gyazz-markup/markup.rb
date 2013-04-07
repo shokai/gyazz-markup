@@ -26,6 +26,7 @@ module GyazzMarkup
         line = markup_strong line
         line = markup_url_with_title line
         line = markup_url line
+        line = markup_wiki_link line
         line = markup_inner_link line
       end
     end
@@ -43,6 +44,11 @@ module GyazzMarkup
     def markup_inner_link(str)
       pat = /\[{2}(.+)\]{2}/
       str !~ pat ? str : str.gsub(pat, "<a href=\"#{options[:host]}/#{options[:wiki]}/#{$1}\">#{$1}</a>")
+    end
+
+    def markup_wiki_link(str)
+      pat = /\[{2}([^\/]+)::(.+)\]{2}/
+      str !~ pat ? str : str.gsub(pat, "<a href=\"#{options[:host]}/#{$1}/\">#{$1}</a>::<a href=\"#{options[:host]}/#{$1}/#{$2}\">#{$2}</a>")
     end
 
     def markup_strong(str)

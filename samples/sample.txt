@@ -4,6 +4,7 @@
 URLをリンク [[http://shokai.org]]
 タイトル付きURLリンク → [[htts:/example.com 私のホームページ]]
 画像つきURLリンク [[https://shokai.org http://gyazo.com/b2c551db20c7ef6ad598b89e66be6517.png]]
+wikilink [[WikiName::PageName]]
 インデント
  aaa
   aaa1

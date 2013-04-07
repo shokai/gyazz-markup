@@ -42,6 +42,11 @@ class TestGyazzMarkup < MiniTest::Unit::TestCase
     assert gm.markup_inner_link("[[foo bar]]") == "<a href=\"http://mygyazz.com/shokai/foo bar\">foo bar</a>", "inner link with gyazz-name"
   end
 
+  def test_markup_wiki_link
+    assert @gm.markup_wiki_link("[[WikiName::PageName]]") == "<a href=\"http://gyazz.com/WikiName/\">WikiName</a>::<a href=\"http://gyazz.com/WikiName/PageName\">PageName</a>"
+    assert @gm.markup_wiki_link("[[Wiki Name::Page Name]]") == "<a href=\"http://gyazz.com/Wiki Name/\">Wiki Name</a>::<a href=\"http://gyazz.com/Wiki Name/Page Name\">Page Name</a>"
+  end
+
   def test_markup_strong
     assert @gm.markup_strong("[[[foo]]]") == "<strong>foo</strong>", "strong"
     assert @gm.markup_strong("[[[foo bar baz]]]") == "<strong>foo bar baz</strong>", "strong with space"
