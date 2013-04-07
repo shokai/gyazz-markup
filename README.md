@@ -56,6 +56,14 @@ wikilink [[shokai::かずすけ]]
 <img src="http://shokai.org/archive/file/780a435810de562eed7fc4be802ca180.png">
 
 
+Test
+----
+
+    % gem install bundler
+    % bundle install
+    % rake test
+
+
 Contributing
 ------------
 
