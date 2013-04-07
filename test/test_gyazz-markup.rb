@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestGyazzMarkup < Test::Unit::TestCase
+class TestGyazzMarkup < MiniTest::Unit::TestCase
 
   def setup
   end
