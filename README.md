@@ -3,6 +3,7 @@ gyazz-markup
 convert Gyazz.com syntax to HTML.
 
 * https://github.com/shokai/gyazz-markup
+* http://gyazz.com/増井/Gyazz記法
 
 
 Installation
