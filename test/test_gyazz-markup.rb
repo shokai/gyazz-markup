@@ -32,18 +32,34 @@ class TestGyazzMarkup < MiniTest::Unit::TestCase
   end
 
   def test_markup_strong
-    assert GyazzMarkup::markup_strong("[[[foo]]]") == "<strong>foo</strong>"
+    assert GyazzMarkup::markup_strong("[[[foo]]]") == "<strong>foo</strong>", "strong"
+    assert GyazzMarkup::markup_strong("[[[foo bar baz]]]") == "<strong>foo bar baz</strong>", "strong with space"
   end
 
   def test_markup_url_with_title
-    assert GyazzMarkup::markup_url_with_title("[[http://example.com mypage]]") == "<a href=\"http://example.com\">mypage</a>"
+    assert GyazzMarkup::markup_url_with_title("[[http://example.com mypage]]") == "<a href=\"http://example.com\">mypage</a>", "url with title"
     assert GyazzMarkup::markup_url_with_title("[[http://example.com my page]]") == "<a href=\"http://example.com\">my page</a>", "space in title"
   end
 
   def test_markup_url_with_image
     img_url = "http://example.com/foo.png"
     url = "http://example.com"
-    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") == "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>"
+    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") == "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>", "url with png image"
+    img_url = "http://example.com/foo.jpg"
+    url = "http://example.com"
+    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") == "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>", "url with jpg image"
+    img_url = "http://example.com/foo.jpeg"
+    url = "http://example.com"
+    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") == "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>", "url with jpeg image"
+    img_url = "http://example.com/foo.gif"
+    url = "http://example.com"
+    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") == "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>", "url with gif image"
+    img_url = "http://example.com/foo.bmp"
+    url = "http://example.com"
+    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") == "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>", "url with bmp image"
+    img_url = "http://example.com/foo.baz"
+    url = "http://example.com"
+    assert GyazzMarkup::markup_url_with_image("[[#{url} #{img_url}]]") != "<a href=\"#{url}\"><img src=\"#{img_url}\"></a>", "url with not image"
   end
 
 end
