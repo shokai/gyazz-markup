@@ -1,4 +1,3 @@
-
 module GyazzMarkup
 
   def self.markup(txt, base="test")
