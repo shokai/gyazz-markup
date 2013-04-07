@@ -17,7 +17,7 @@ module GyazzMarkup
 
     def markup(txt)
       lines = txt.split(/[\r\n]/).delete_if{|line|
-        line.to_s.size < 1
+        line.empty?
       }
 
       lines.map do |line|
@@ -26,7 +26,7 @@ module GyazzMarkup
         line = markup_strong line
         line = markup_url_with_title line
         line = markup_url line
-        line = markup_inner_link(line)
+        line = markup_inner_link line
       end
     end
 
