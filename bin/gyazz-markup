@@ -14,4 +14,9 @@ unless input
   exit 1
 end
 
-puts GyazzMarkup::Markup.new(:wiki => wiki).markup(open(input).read)
+puts '<style type="text/css">'
+0.upto(5).each do |i|
+  puts ".gyazz_indent#{i}{ margin-left : #{i*20}px; }"
+end
+puts '</style>'
+puts GyazzMarkup::Markup.new(:wiki => wiki, :indent => :div).markup(open(input).read)

@@ -4,7 +4,8 @@ module GyazzMarkup
     def self.default
       {
         :host => 'http://gyazz.com',
-        :wiki => 'test'
+        :wiki => 'test',
+        :indent => nil
       }
     end
 
