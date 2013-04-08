@@ -24,9 +24,14 @@ gm = GyazzMarkup::Markup.new
 puts gm.markup str
 ```
 
-config
+options
 ```ruby
-gm = GyazzMarkup::Markup.new(:host => 'http://gyazz.com', :wiki => 'shokai')
+gm = GyazzMarkup::Markup.new(
+                             :host => 'http://gyazz.com',
+                             :wiki => 'shokai'
+                             :indent => 'div',
+                             :prefix => '-'
+                            )
 puts gm.markup str
 ```
 
