@@ -16,7 +16,7 @@ parser = ArgsParser.parse ARGV do
 end
 
 if parser.has_option? :help or !parser.has_param? :input
-  STDERR.puts "gyazz-markup - convert gyazz syntax to HTML (v#{GyazzMarkup::VERSION} )"
+  STDERR.puts "gyazz-markup - convert gyazz syntax to HTML (v#{GyazzMarkup::VERSION})"
   STDERR.puts "               https://github.com/shokai/gyazz-markup"
   STDERR.puts parser.help
   STDERR.puts
