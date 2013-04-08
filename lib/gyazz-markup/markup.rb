@@ -28,15 +28,15 @@ module GyazzMarkup
         line = markup_url line
         line = markup_wiki_link line
         line = markup_inner_link line
-        line = markup_indent line
+        line = markup_listtag line
       end
     end
 
-    def markup_indent(str)
-      return str unless options[:indent]
+    def markup_listtag(str)
+      return str unless options[:listtag]
       indent_count = str.scan(/^(\s*).*$/)[0][0].size
       prefix = "#{options[:prefix]} " if options[:prefix]
-      "<#{options[:indent]} class=\"gyazz_indent#{indent_count}\">#{prefix}#{str.strip}</#{options[:indent]}>"
+      "<#{options[:listtag]} class=\"gyazz_indent#{indent_count}\">#{prefix}#{str.strip}</#{options[:listtag]}>"
     end
 
     def markup_image(str)

@@ -29,7 +29,7 @@ options
 gm = GyazzMarkup::Markup.new(
                              :host => 'http://gyazz.com',
                              :wiki => 'shokai'
-                             :indent => 'div',
+                             :listtag => 'div',
                              :prefix => '-'
                             )
 puts gm.markup str
@@ -57,9 +57,9 @@ wikilink [[shokai::かずすけ]]
 ```
 
     % gyazz-markup --help
-    % gyazz-markup -i samples/sample.txt
+    % gyazz-markup -i samples/sample.txt -li div -prefix "-"
 
-<img src="http://shokai.org/archive/file/780a435810de562eed7fc4be802ca180.png">
+<img src="http://shokai.org/archive/file/507156117820b62bab54dc185883d9d3.png">
 
 
 Test
