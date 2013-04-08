@@ -2,10 +2,12 @@ PATH
   remote: .
   specs:
     gyazz-markup (0.1.2)
+      args_parser
 
 GEM
   remote: https://rubygems.org/
   specs:
+    args_parser (0.1.4)
     minitest (4.7.0)
     rake (10.0.4)
 

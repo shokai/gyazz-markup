@@ -2,15 +2,27 @@
 # -*- coding: utf-8 -*-
 $:.unshift File.expand_path '../lib', File.dirname(__FILE__)
 require 'rubygems'
-
 require 'gyazz-markup'
+require 'args_parser'
 
-input, wiki = ARGV[0..1]
-unless input
-  STDERR.puts "== gyazz-markup v#{GyazzMarkup::VERSION}"
+parser = ArgsParser.parse ARGV do
+  arg :input, 'input file', :alias => :i
+  arg :output, 'output file', :alias => :o
+  arg :wiki, 'wiki name', :default => 'test'
+  arg :host, 'host name', :default => 'http://gyazz.com'
+  arg :indent, 'list indent tag', :default => 'div'
+  arg :prefix, 'list prefix'
+  arg :help, 'show help', :alias => :h
+end
+
+if parser.has_option? :help or !parser.has_param? :input
+  STDERR.puts "gyazz-markup - convert gyazz syntax to HTML (v#{GyazzMarkup::VERSION} )"
+  STDERR.puts "               https://github.com/shokai/gyazz-markup"
+  STDERR.puts parser.help
   STDERR.puts
-  STDERR.puts "  % gyazz-markup input.txt"
-  STDERR.puts "  % gyazz-markup input.txt WIKINAME"
+  STDERR.puts "e.g."
+  STDERR.puts "  gyazz-markup -i input.txt"
+  STDERR.puts "  gyazz-markup -i input.txt -wiki shokai -indent div -prefix \"-\""
   exit 1
 end
 
@@ -19,4 +31,11 @@ puts '<style type="text/css">'
   puts ".gyazz_indent#{i}{ margin-left : #{i*20}px; }"
 end
 puts '</style>'
-puts GyazzMarkup::Markup.new(:wiki => wiki, :indent => :div).markup(open(input).read)
+
+txt = open(parser[:input]).read
+puts GyazzMarkup::Markup.new(
+                             :wiki => parser[:wiki],
+                             :host => parser[:host],
+                             :indent => parser[:indent],
+                             :prefix => parser[:prefix]
+                             ).markup(txt)

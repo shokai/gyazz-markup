@@ -51,7 +51,8 @@ wikilink [[shokai::かずすけ]]
   bbb2
 ```
 
-    % gyazz-markup samples/sample.txt
+    % gyazz-markup --help
+    % gyazz-markup -i samples/sample.txt
 
 <img src="http://shokai.org/archive/file/780a435810de562eed7fc4be802ca180.png">
 

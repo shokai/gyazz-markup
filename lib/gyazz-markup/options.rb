@@ -5,7 +5,8 @@ module GyazzMarkup
       {
         :host => 'http://gyazz.com',
         :wiki => 'test',
-        :indent => nil
+        :indent => nil,
+        :prefix => nil
       }
     end
 

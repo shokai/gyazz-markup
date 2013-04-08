@@ -35,7 +35,8 @@ module GyazzMarkup
     def markup_indent(str)
       return str unless options[:indent]
       indent_count = str.scan(/^(\s*).*$/)[0][0].size
-      "<#{options[:indent]} class=\"gyazz_indent#{indent_count}\">#{str.strip}</#{options[:indent]}>"
+      prefix = "#{options[:prefix]} " if options[:prefix]
+      "<#{options[:indent]} class=\"gyazz_indent#{indent_count}\">#{prefix}#{str.strip}</#{options[:indent]}>"
     end
 
     def markup_image(str)
