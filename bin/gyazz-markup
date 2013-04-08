@@ -10,7 +10,7 @@ parser = ArgsParser.parse ARGV do
   arg :output, 'output file', :alias => :o
   arg :wiki, 'wiki name', :default => 'test'
   arg :host, 'host name', :default => 'http://gyazz.com'
-  arg :indent, 'list indent tag', :default => 'div'
+  arg :indent, 'list indent tag'
   arg :prefix, 'list prefix'
   arg :help, 'show help', :alias => :h
 end
@@ -26,11 +26,13 @@ if parser.has_option? :help or !parser.has_param? :input
   exit 1
 end
 
-puts '<style type="text/css">'
-0.upto(5).each do |i|
-  puts ".gyazz_indent#{i}{ margin-left : #{i*20}px; }"
+if parser.has_param? :indent
+  puts '<style type="text/css">'
+  0.upto(5).each do |i|
+    puts ".gyazz_indent#{i}{ margin-left : #{i*20}px; }"
+  end
+  puts '</style>'
 end
-puts '</style>'
 
 txt = open(parser[:input]).read
 puts GyazzMarkup::Markup.new(
