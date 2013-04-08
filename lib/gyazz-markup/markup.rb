@@ -20,6 +20,8 @@ module GyazzMarkup
         line.empty?
       }
 
+      lines = markup_table lines
+
       lines.map do |line|
         line = markup_url_with_image line
         line = markup_image line
@@ -30,6 +32,14 @@ module GyazzMarkup
         line = markup_inner_link line
         line = markup_listtag line
       end
+    end
+
+    def markup_table(lines)
+      lines = lines.map{|line|
+        :indent => line.scan(/^(\s*).*$/)[0][0].size,
+        :blocks => line.split(/\s+/).size,
+        :line = line
+      }
     end
 
     def markup_listtag(str)
