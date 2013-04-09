@@ -1,16 +1,18 @@
-[[http://gyazo.com/f7b9ad3035e91e7c9d91aaa082ddb7f2.png]] こうすると、画像が入れられます
-[[[強く表示]]]
-新しいページへのリンクも作れる → [[ごはん]]
-URLをリンク [[https://github.com/shokai/gyazz-markup]]
-タイトル付きリンク [[http://shokai.org 私のホームページ]]
-画像つきURLリンク [[https://shokai.org http://gyazo.com/b2c551db20c7ef6ad598b89e66be6517.png]]
-wikilink [[shokai::かずすけ]]
-テーブル
--   AA BB CC
-4/1 o  o  x
-4/2 o  x  o
-4/3 o  o  x
-4/4 x  x  o
+[[[文字装飾]]]
+ [[http://gyazo.com/f7b9ad3035e91e7c9d91aaa082ddb7f2.png]] こうすると、画像が入れられます
+ [[[強く表示]]]
+ 新しいページへのリンクも作れる → [[ごはん]]
+ URLをリンク [[https://github.com/shokai/gyazz-markup]]
+ タイトル付きリンク [[http://shokai.org 私のホームページ]]
+ 画像つきURLリンク [[https://shokai.org http://gyazo.com/b2c551db20c7ef6ad598b89e66be6517.png]]
+ WikiLink [[shokai::かずすけ]]
+[[[日程調整]]]
+ テーブル
+ -   AA BB CC
+ 4/1 o  o  x
+ 4/2 o  x  o
+ 4/3 o  o  x
+ 4/4 x  x  o
 インデント
  aaa
   aaa1

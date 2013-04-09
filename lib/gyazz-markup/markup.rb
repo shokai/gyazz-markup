@@ -36,10 +36,37 @@ module GyazzMarkup
 
     def markup_table(lines)
       lines = lines.map{|line|
-        :indent => line.scan(/^(\s*).*$/)[0][0].size,
-        :blocks => line.split(/\s+/).size,
-        :line = line
+        {
+          :indent => line.scan(/^(\s*).*$/)[0][0].size,
+          :blocks => line.split(/\s+/).size,
+          :line => line
+        }
       }
+      _indent = nil
+      _blocks = nil
+      res = []
+      lines.each do |line|
+        if line[:indent] == _indent and line[:blocks] == _blocks and line[:blocks] > 2
+          res.shift "" if res.empty?
+          res[res.size-1] = res.last+"\n"+line[:line]
+        else
+          res << line[:line]
+        end
+        _indent = line[:indent]
+        _blocks = line[:blocks]
+      end
+      res = res.map do |line|
+        r = nil
+        if line =~ /\n/
+          indent_count = line.scan(/^(\s*).*$/)[0][0].size
+          r = " "*indent_count+"<table>"+line.split(/\n/).map{|i|
+            "<tr>" + i.split(/\s+/).map{|j| "<td>#{j}</td>" }.join("") + "</tr>"
+          }.join("")+"</table>"
+        else
+          r = line
+        end
+        r
+      end
     end
 
     def markup_listtag(str)
